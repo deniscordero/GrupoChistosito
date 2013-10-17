@@ -22,7 +22,7 @@ public class Main {
 		for (Producto producto : age.getProducto()) {
 			
 			System.out.println(producto.getCodigoProducto()  + " "+  
-					producto.getNombreProducto()+ " 							"+ 
+					producto.getNombreProducto()+ " 					"+ 
 			producto.getCantidadProducto()
 					+ " " +producto.getPrecioProducto());
 	
