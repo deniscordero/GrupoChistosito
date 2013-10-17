@@ -1,13 +1,7 @@
 package com.creativa.producto;
-
-
-
-
-
 import com.creativa.producto.beans.Producto;
 import com.creativa.producto.reader.ProductoReadearFile;
 import com.creativa.producto.reader.SimpleReaderFile;
-
 
 
 public class Main {
@@ -15,9 +9,6 @@ public class Main {
 	public static void main(String[] args) {
 		String path = "C:\\Users\\Public\\Documents\\productos.txt";
 		SimpleReaderFile file = new SimpleReaderFile(path);
-		
-		
-		
 		file.readFile();
 		
 		ProductoReadearFile age = new ProductoReadearFile(path);
