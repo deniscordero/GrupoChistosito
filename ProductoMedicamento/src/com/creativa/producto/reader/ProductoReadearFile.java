@@ -21,8 +21,8 @@ public class ProductoReadearFile extends SimpleReaderFile{
 		producto = new ArrayList<Producto>();
 		for (String linea : getLineas()) {
 			String[] datos = linea.split(";");
-			producto.add(new Producto(datos[0], Integer.parseInt(datos[1]), 
-					Double.parseDouble(datos[2])));
+			producto.add(new Producto(datos[0], datos[1], 
+					datos[3], datos[2]));
 		}
 	}
 	

@@ -4,18 +4,20 @@ public class Producto {
 	
 	private String codigoProducto;
 	private String nombreProducto;
-	private int cantidadProducto;
-	private Double precioProducto;
+	private String cantidadProducto;
+	private String precioProducto;
 	
 	public Producto() {}
 	
 		
-	public Producto(String nombreProducto,
-			int cantidadProducto, Double precioProducto) {
+	public Producto(String codigoProducto, String nombreProducto,
+			String precioProducto, String cantidadProducto) {
 		super();
+		this.codigoProducto = codigoProducto;
 		this.nombreProducto = nombreProducto;
-		this.cantidadProducto = cantidadProducto;
 		this.precioProducto = precioProducto;
+		this.cantidadProducto = cantidadProducto;
+		
 	}
 
 
@@ -34,16 +36,16 @@ public class Producto {
 	public void setNombreProducto(String nombreProducto) {
 		this.nombreProducto = nombreProducto;
 	}
-	public int getCantidadProducto() {
+	public String getCantidadProducto() {
 		return cantidadProducto;
 	}
-	public void setCantidadProducto(int cantidadProducto) {
+	public void setCantidadProducto(String cantidadProducto) {
 		this.cantidadProducto = cantidadProducto;
 	}
-	public Double getPrecioProducto() {
+	public String getPrecioProducto() {
 		return precioProducto;
 	}
-	public void setPrecioProducto(Double precioProducto) {
+	public void setPrecioProducto(String precioProducto) {
 		this.precioProducto = precioProducto;
 	}
 	
