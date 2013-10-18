@@ -6,8 +6,7 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
-import com.creativa.producto.reader.ProductoReadearFile;
-import com.creativa.producto.reader.SimpleReaderFile;
+
 
 import javax.sql.DataSource;
 
@@ -40,11 +39,12 @@ public class ProductoDAO extends BaseDAO{
 		   .append("     ?, ")//2
 		   .append("     ?, ")//3
 		   .append("     ? ")//4
-		   .append("   ) ");
-		
+		   .append("   ) ");		
 		try {
 			con = getConnection();
 			ps = con.prepareStatement(sql.toString());
+			
+			
 			if(producto.getCodigoProducto() == null) {
 				ps.setNull(pos++, Types.VARCHAR);
 			} else {
@@ -159,7 +159,7 @@ public class ProductoDAO extends BaseDAO{
 		   .append(" from ( ")
 		   .append("      select rownum row_num, sub.* ")
 		   .append("       from ( ")
-		   .append("             select * from producto_grupo_chistosito order by codigo_producto desc ")
+		   .append("             select * from producto_grupo_chistosito order by codigo_producto ")
 		   .append("            ) sub ")
 		   .append("       where rownum <= ? ")
 		   .append("   ) ")

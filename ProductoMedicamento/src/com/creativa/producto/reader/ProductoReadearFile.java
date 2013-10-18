@@ -1,7 +1,12 @@
 package com.creativa.producto.reader;
 
 import com.creativa.producto.beans.Producto;
+import com.creativa.producto.dao.ProductoDAO;
+import com.creativa.producto.datasourse.DataSourceFactory;
 
+
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,16 +21,34 @@ public class ProductoReadearFile extends SimpleReaderFile{
 	}
 	
 	
-	@Override
-	public void readFile() {
+	//@Override
+	public void guardar()  {
 		super.readFile();
-		producto = new ArrayList<Producto>();
+		ProductoDAO productoDao = new ProductoDAO(DataSourceFactory.dataSource);
+		Producto producto = new Producto();		
+		//producto = new ArrayList<Producto>();
 		for (String linea : getLineas()) {
-			String[] datos = linea.split(";");
-			producto.add(new Producto(datos[0], datos[1], 
-					Double.parseDouble(datos[2]), Integer.parseInt(datos[3])));
+		String[] datos = linea.split(";");							
+			producto.setCodigoProducto(datos[0]);
+			producto.setNombreProducto(datos[1]);
+			producto.setPrecioProducto(Double.parseDouble(datos[2]));
+			producto.setCantidadProducto(Integer.parseInt(datos[3]));
+			try {
+				productoDao.insert(producto);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
+		
+		
+		
+		
 	}
+	
+	
+	
 	
 	public List<Producto> getProducto() {
 		return this.producto;

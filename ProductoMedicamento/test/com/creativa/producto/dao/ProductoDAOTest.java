@@ -24,6 +24,8 @@ public class ProductoDAOTest {
 
 	@Test
 	public void test() throws SQLException {
+
+		
 		Producto producto = new Producto();
 		producto.setCodigoProducto("ABDCz3");
 		producto.setNombreProducto("Aspirina16");
@@ -31,7 +33,6 @@ public class ProductoDAOTest {
 		producto.setCantidadProducto(13);
 		productoDAO.insert(producto);
 		assertTrue(true);
-		
 		
 		
 	}
