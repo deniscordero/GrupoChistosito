@@ -27,18 +27,36 @@ public class ProductoDAO extends BaseDAO{
 		sql.append(" INSERT ")
 		   .append(" INTO PRODUCTO ")
 		   .append("   ( ")
-		   .append("     CODIGO_PRODUCTO, ")
-		   .append("     NOMBRE_PRODUCTO, ")
-		   .append("     PRECIO_PRODUCTO, ")
-		   .append("     CANTIDAD_PRODUCTO, ")
+		   .append("     CODIGO_PRODUCTO, ")//1
+		   .append("     NOMBRE_PRODUCTO, ")//2
+		   .append("     PRECIO_PRODUCTO, ")//3
+		   .append("     CANTIDAD_PRODUCTO ")//7
 		   .append("   ) ")
 		   .append("   VALUES ")
 		   .append("   ( ")
 		   .append("     ?, ")//1
 		   .append("     ?, ")//2
 		   .append("     ?, ")//3
-		   .append("     ?, ")//4
+		   
+		  
+		   
+		   .append("     ? ")//7
 		   .append("   ) ");
+//		sql.append(" INSERT ")
+//		   .append(" INTO PRODUCTO ")
+//		   .append("   ( ")
+//		   .append("     CODIGO_PRODUCTO, ")
+//		   .append("     NOMBRE_PRODUCTO, ")
+//		   .append("     PRECIO_PRODUCTO, ")
+//		   .append("     CANTIDAD_PRODUCTO, ")
+//		   .append("   ) ")
+//		   .append("   VALUES ")
+//		   .append("   ( ")
+//		   .append("     ?, ")//1
+//		   .append("     ?, ")//2
+//		   .append("     ?, ")//3
+//		   .append("     ?, ")//4
+//		   .append("   ) ");
 		try {
 			con = getConnection();
 			ps = con.prepareStatement(sql.toString());
@@ -121,7 +139,7 @@ public class ProductoDAO extends BaseDAO{
 		}
 	}
 	
-	public void delete(Long key) throws SQLException {
+	public void delete(String key) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		StringBuilder sql = new StringBuilder();
@@ -131,7 +149,7 @@ public class ProductoDAO extends BaseDAO{
 		try {
 			con = getConnection();
 			ps = con.prepareStatement(sql.toString());
-			ps.setLong(pos++, key);
+			ps.setString(pos++, key);
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			throw e;

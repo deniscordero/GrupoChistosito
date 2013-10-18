@@ -26,10 +26,10 @@ public class ProductoDAOTest {
 	@Test
 	public void test() throws SQLException {
 		Producto producto = new Producto();
-		producto.setCodigoProducto(StringDummyGenerator.getWords(6));
+		producto.setCodigoProducto(StringDummyGenerator.getWords(1));
 		producto.setNombreProducto(StringDummyGenerator.getWords(5));
-		producto.setPrecioProducto(StringDummyGenerator.getWords(4));
-		producto.setCantidadProducto(StringDummyGenerator.getWords(2));
+		producto.setPrecioProducto(IntegerDummyGenerator.generate(8));
+		producto.setCantidadProducto(IntegerDummyGenerator.generate(8));
 		productoDAO.insert(producto);
 		assertTrue(true);
 		
