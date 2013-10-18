@@ -170,7 +170,7 @@ public class ProductoDAO extends BaseDAO{
 		   .append(" from ( ")
 		   .append("      select rownum row_num, sub.* ")
 		   .append("       from ( ")
-		   .append("             select * from producto order by codigo_producto desc ")
+		   .append("             select * from producto_grupo_chistosito order by codigo_producto desc ")
 		   .append("            ) sub ")
 		   .append("       where rownum <= ? ")
 		   .append("   ) ")

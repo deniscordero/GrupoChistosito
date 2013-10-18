@@ -1,10 +1,15 @@
 package com.creativa.producto.view;
 
 import java.awt.BorderLayout;
+import java.awt.ScrollPaneAdjustable;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+
+import oracle.jdbc.aq.AQNotificationEvent.AdditionalEventType;
+
 import com.creativa.producto.dao.ProductoDAO;
 import com.creativa.producto.datasourse.DataSourceFactory;
 import com.creativa.producto.view.table.model.ProductoTableModel;
@@ -23,7 +28,7 @@ public class ProductoView extends JPanel{
 		
 		table = new JTable(new ProductoTableModel(
 				new ProductoDAO(DataSourceFactory.dataSource)));
-		//JScrollPane scrollPane = new JScrollPane(table);
+		JScrollPane scrollPane = new JScrollPane(table);
 		table.setFillsViewportHeight(true);
 		setLayout(new BorderLayout());
 		add(table.getTableHeader(), BorderLayout.PAGE_START);
@@ -44,6 +49,9 @@ public class ProductoView extends JPanel{
         //Display the window.
         frame.pack();
         frame.setVisible(true);
+        frame.setSize(500, 200);
+        
+       
     }
     
     public static void main(String[] args) {

@@ -20,13 +20,13 @@ public class ProductoTableModel extends AbstractTableModel {
 	
 	private List<Producto> productos;
 	
-	private String[] columnsName = {"Nombre Producto", "Cantidad Producto", "Precio Producto"};
+	private String[] columnsName = {"Codigo Producto", "Nombre Producto", "Cantidad Producto", "Precio Producto"};
 	
 	public ProductoTableModel(ProductoDAO dao) {
 		super();
 		this.dao = dao;
 		try {
-		productos = this.dao.findAll(0,10);
+		productos = this.dao.findAll(0, 100);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -44,12 +44,12 @@ public class ProductoTableModel extends AbstractTableModel {
 
 	@Override
 	public int getColumnCount() {
-		return 2;
+		return 4;
 	}
 
 	@Override
 	public int getRowCount() {
-		return 10;
+		return productos.size();
 	}
 
 	@Override
@@ -58,12 +58,15 @@ public class ProductoTableModel extends AbstractTableModel {
 		Producto c = productos.get(rowIndex);
 		switch (columnIndex) {
 		case 0:
-			r = c.getNombreProducto();
+			r = c.getCodigoProducto();
 			break;
 		case 1:
-			r = c.getPrecioProducto();
+			r = c.getNombreProducto();
 			break;
 		case 2:
+			r = c.getPrecioProducto();
+			break;
+		case 3:
 			r = c.getCantidadProducto();
 			break;
 		default:
