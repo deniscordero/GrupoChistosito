@@ -9,8 +9,7 @@ import org.junit.Test;
 
 
 import com.creativa.producto.datasourse.DataSourceFactory;
-import com.creativa.dummy.data.generator.IntegerDummyGenerator;
-import com.creativa.dummy.data.generator.StringDummyGenerator;
+
 
 import com.creativa.producto.beans.Producto;
 
@@ -26,8 +25,8 @@ public class ProductoDAOTest {
 	@Test
 	public void test() throws SQLException {
 		Producto producto = new Producto();
-		producto.setCodigoProducto("ABDCF3");
-		producto.setNombreProducto("Aspirina3");
+		producto.setCodigoProducto("ABDCz3");
+		producto.setNombreProducto("Aspirina16");
 		producto.setPrecioProducto(33.00);
 		producto.setCantidadProducto(13);
 		productoDAO.insert(producto);

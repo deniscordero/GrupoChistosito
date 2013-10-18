@@ -5,6 +5,7 @@ import com.creativa.producto.beans.Producto;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ProductoReadearFile extends SimpleReaderFile{
 
 	private List<Producto> producto;

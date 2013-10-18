@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
+import com.creativa.producto.reader.ProductoReadearFile;
+import com.creativa.producto.reader.SimpleReaderFile;
 
 import javax.sql.DataSource;
 
@@ -39,21 +41,7 @@ public class ProductoDAO extends BaseDAO{
 		   .append("     ?, ")//3
 		   .append("     ? ")//4
 		   .append("   ) ");
-//		sql.append(" INSERT ")
-//		   .append(" INTO PRODUCTO ")
-//		   .append("   ( ")
-//		   .append("     CODIGO_PRODUCTO, ")
-//		   .append("     NOMBRE_PRODUCTO, ")
-//		   .append("     PRECIO_PRODUCTO, ")
-//		   .append("     CANTIDAD_PRODUCTO, ")
-//		   .append("   ) ")
-//		   .append("   VALUES ")
-//		   .append("   ( ")
-//		   .append("     ?, ")//1
-//		   .append("     ?, ")//2
-//		   .append("     ?, ")//3
-//		   .append("     ?, ")//4
-//		   .append("   ) ");
+		
 		try {
 			con = getConnection();
 			ps = con.prepareStatement(sql.toString());
@@ -104,6 +92,7 @@ public class ProductoDAO extends BaseDAO{
 		try {
 			con = getConnection();
 			ps = con.prepareStatement(sql.toString());
+						
 			if(producto.getNombreProducto() == null) {
 				ps.setNull(pos++, Types.VARCHAR);
 			} else {
