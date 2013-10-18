@@ -25,7 +25,7 @@ public class ProductoDAO extends BaseDAO{
 		StringBuilder sql = new StringBuilder();
 		int pos = 1;
 		sql.append(" INSERT ")
-		   .append(" INTO PRODUCTO ")
+		   .append(" INTO PRODUCTO_GRUPO_CHISTOSITO ")
 		   .append("   ( ")
 		   .append("     CODIGO_PRODUCTO, ")//1
 		   .append("     NOMBRE_PRODUCTO, ")//2
@@ -37,10 +37,7 @@ public class ProductoDAO extends BaseDAO{
 		   .append("     ?, ")//1
 		   .append("     ?, ")//2
 		   .append("     ?, ")//3
-		   
-		  
-		   
-		   .append("     ? ")//7
+		   .append("     ? ")//4
 		   .append("   ) ");
 //		sql.append(" INSERT ")
 //		   .append(" INTO PRODUCTO ")
@@ -71,14 +68,14 @@ public class ProductoDAO extends BaseDAO{
 				ps.setString(pos++, producto.getNombreProducto());
 			}
 			if(producto.getPrecioProducto() == null) {
-				ps.setNull(pos++, Types.VARCHAR);
+				ps.setNull(pos++, Types.NUMERIC);
 			} else {
-				ps.setString(pos++, producto.getPrecioProducto());
+				ps.setDouble(pos++, producto.getPrecioProducto());
 			}
-			if(producto.getCantidadProducto() == null) {
-				ps.setNull(pos++, Types.VARCHAR);
+			if(producto.getCantidadProducto()== null) {
+				ps.setNull(pos++, Types.INTEGER);
 			} else {
-				ps.setString(pos++, producto.getCantidadProducto());
+				ps.setInt(pos++, producto.getCantidadProducto());
 			}
 			
 			ps.executeUpdate();
@@ -115,12 +112,12 @@ public class ProductoDAO extends BaseDAO{
 			if(producto.getPrecioProducto() == null) {
 				ps.setNull(pos++, Types.VARCHAR);
 			} else {
-				ps.setString(pos++, producto.getPrecioProducto());
+				ps.setDouble(pos++, producto.getPrecioProducto());
 			}
 			if(producto.getCantidadProducto() == null) {
 				ps.setNull(pos++, Types.VARCHAR);
 			} else {
-				ps.setString(pos++, producto.getCantidadProducto());
+				ps.setInt(pos++, producto.getCantidadProducto());
 			}
 			
 			
@@ -191,8 +188,8 @@ public class ProductoDAO extends BaseDAO{
 			while(rs.next()) {
 				l.add(new Producto(rs.getString("CODIGO_PRODUCTO")
 						, rs.getString("NOMBRE_PRODUCTO")
-						, rs.getString("PRECIO_PRODUCTO")
-						, rs.getString("CANTIDAD_PRODUCTO")));
+						, rs.getDouble("PRECIO_PRODUCTO")
+						, rs.getInt("CANTIDAD_PRODUCTO")));
 			}
 		} catch (SQLException e) {
 			throw e;

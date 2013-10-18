@@ -11,20 +11,20 @@ public class Main {
 		SimpleReaderFile file = new SimpleReaderFile(path);
 		file.readFile();
 		
-		ProductoReadearFile age = new ProductoReadearFile(path);
+		ProductoReadearFile prod = new ProductoReadearFile(path);
 		
 		
 		System.out.println("Alumno: Denis Wilfredo Mejia Cordero");
 		System.out.println("###################### + Producto + " +
 				"######################");
 		
-		age.readFile();
-		for (Producto producto : age.getProducto()) {
+		prod.readFile();
+		for (Producto producto : prod.getProducto()) {
 			
 			System.out.println(producto.getCodigoProducto()  + " "+  
 					producto.getNombreProducto()+ " 					"+ 
-			producto.getCantidadProducto()
-					+ " " +producto.getPrecioProducto());
+			producto.getPrecioProducto()
+					+ " " +producto.getCantidadProducto());
 	
 			
 			

@@ -26,7 +26,7 @@ public class ProductoTableModel extends AbstractTableModel {
 		super();
 		this.dao = dao;
 		try {
-		productos = this.dao.findAll(0, 10);
+		productos = this.dao.findAll(0,10);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

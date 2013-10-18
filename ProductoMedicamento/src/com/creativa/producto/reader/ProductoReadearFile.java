@@ -22,7 +22,7 @@ public class ProductoReadearFile extends SimpleReaderFile{
 		for (String linea : getLineas()) {
 			String[] datos = linea.split(";");
 			producto.add(new Producto(datos[0], datos[1], 
-					datos[3], datos[2]));
+					Double.parseDouble(datos[2]), Integer.parseInt(datos[3])));
 		}
 	}
 	
