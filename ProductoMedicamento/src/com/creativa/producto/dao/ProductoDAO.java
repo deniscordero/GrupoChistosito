@@ -125,6 +125,37 @@ public class ProductoDAO extends BaseDAO{
 		}
 	}
 	
+	
+	public void delete() throws SQLException  {
+		Connection con = null;
+		PreparedStatement ps = null;
+		StringBuilder sql = new StringBuilder();
+		sql.append( " DELETE FROM PRODUCTO_GRUPO_CHISTOSITO" );
+		 		
+		try {
+			con = getConnection();
+			ps = con.prepareStatement(sql.toString());
+			
+			
+
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			throw e;
+		} finally {
+			if(ps != null) {
+				ps.close();
+			}
+			if(con != null) {
+				con.close();
+			}
+		}
+	}
+	
+	
+	
+	
+	/*
 	public void delete(String key) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -147,7 +178,8 @@ public class ProductoDAO extends BaseDAO{
 				con.close();
 			}
 		}
-	}
+	}*/
+	
 	
 	public List<Producto> findAll(int first, int size) throws SQLException {
 		List<Producto> l = new ArrayList<Producto>();

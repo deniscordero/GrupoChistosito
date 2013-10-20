@@ -21,12 +21,11 @@ public class ProductoReadearFile extends SimpleReaderFile{
 	}
 	
 	
-	//@Override
-	public void guardar()  {
+	
+	public void leerGuardar()  {
 		super.readFile();
 		ProductoDAO productoDao = new ProductoDAO(DataSourceFactory.dataSource);
 		Producto producto = new Producto();		
-		//producto = new ArrayList<Producto>();
 		for (String linea : getLineas()) {
 		String[] datos = linea.split(";");							
 			producto.setCodigoProducto(datos[0]);

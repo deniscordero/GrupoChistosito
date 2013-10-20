@@ -11,14 +11,13 @@ import java.util.List;
 
 public class SimpleReaderFile {
 
-		private String path;
 		private File file;
 		private List<String> lineas;
 		
 		public SimpleReaderFile(File file) {
 			super();
 			this.file = file;
-			this.path = file.getAbsolutePath();
+			file.getAbsolutePath();
 			lineas = new ArrayList<String>();
 		}
 

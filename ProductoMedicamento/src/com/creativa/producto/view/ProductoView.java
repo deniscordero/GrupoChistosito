@@ -33,13 +33,14 @@ public class ProductoView extends JPanel{
         JScrollPane scrollPane = new JScrollPane(table);
        
         table.setFillsViewportHeight(true);
+        
         setLayout(new BorderLayout());
         add(table.getTableHeader(), BorderLayout.PAGE_START);
         add(table, BorderLayout.CENTER);
         add(new JScrollPane(table));
         JButton jButton1 = new JButton();
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-       
+		
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setViewportBorder(new LineBorder(Color.RED));
         scrollPane.getViewport().add(jButton1, null);
@@ -53,7 +54,7 @@ public class ProductoView extends JPanel{
  
         //Create and set up the window.
         JFrame frame = new JFrame("Table Model Demo");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
  
         //Create and set up the content pane.
         ProductoView newContentPane = new ProductoView();
@@ -65,6 +66,7 @@ public class ProductoView extends JPanel{
         frame.pack();
         frame.setVisible(true);
         frame.setSize(500, 200);
+        
        
       
     }
