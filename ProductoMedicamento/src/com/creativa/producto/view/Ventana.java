@@ -30,10 +30,11 @@ public class Ventana extends JFrame implements ActionListener{
 	private JLabel label5;
 	private JLabel label6;
 	private JLabel label7;
+	private JLabel label8;
 
 	public Ventana() {
 		super("Proyecto Final");
-		this.setSize(270, 250);
+		this.setSize(270, 270);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);	
@@ -48,9 +49,11 @@ public class Ventana extends JFrame implements ActionListener{
 				"");
 		label4 =  new JLabel("Leer archivo y guardarlo en " +
 				"la base de datos");
-		label5 =  new JLabel("Borrar todos los datos de la Tabla ");
-		label6 =  new JLabel("Guarde el archivo en la siguiente ubicacion:");
-		label7 = new JLabel("C:\\Users\\Public\\Documents\\productos.txt ");
+		label5 = new JLabel("                         y mostar la tabla          " +
+				"                              ");
+		label6 =  new JLabel("Borrar todos los datos de la Tabla ");
+		label7 =  new JLabel("Guarde el archivo en la siguiente ubicacion:");
+		label8 = new JLabel("C:\\Users\\Public\\Documents\\productos.txt ");
 		boton1 = new JButton("Eejecutar");
 		boton2 = new JButton("Borrar");
 		
@@ -58,11 +61,12 @@ public class Ventana extends JFrame implements ActionListener{
 		this.add(label2);
 		this.add(label3);
 		this.add(label4);
-		this.add(boton1);
 		this.add(label5);
-		this.add(boton2);
+		this.add(boton1);
 		this.add(label6);
+		this.add(boton2);
 		this.add(label7);
+		this.add(label8);
 		boton1.addActionListener(this);
 		boton2.addActionListener(this);		
 	}
