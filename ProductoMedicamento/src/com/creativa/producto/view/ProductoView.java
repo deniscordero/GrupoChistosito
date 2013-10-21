@@ -54,7 +54,7 @@ public class ProductoView extends JPanel{
  
         //Create and set up the window.
         JFrame frame = new JFrame("Table Model Demo");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
         //Create and set up the content pane.
         ProductoView newContentPane = new ProductoView();

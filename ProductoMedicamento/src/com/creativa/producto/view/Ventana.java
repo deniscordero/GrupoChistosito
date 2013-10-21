@@ -68,15 +68,17 @@ public class Ventana extends JFrame implements ActionListener{
 		this.add(label7);
 		this.add(label8);
 		boton1.addActionListener(this);
-		boton2.addActionListener(this);		
+		boton2.addActionListener(this);	
+		file.readFile();
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == boton1 ) {
-			file.readFile();
 			prod.leerGuardar();
 			ProductoView.createAndShowGUI();
-		}if (e.getSource() == boton2){
+		}
+		if (e.getSource() == boton2){
 			try {
 				productoDao.delete();
 			} catch (SQLException e1) {

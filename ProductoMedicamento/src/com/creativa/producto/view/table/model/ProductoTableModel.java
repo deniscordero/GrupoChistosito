@@ -20,7 +20,7 @@ public class ProductoTableModel extends AbstractTableModel {
 	
 	private List<Producto> productos;
 	
-	private String[] columnsName = {"Codigo Producto", "Nombre Producto", "Cantidad Producto", "Precio Producto"};
+	private String[] columnsName = {"Codigo Producto", "Nombre Producto", "Precio Producto", "Cantidad Producto"};
 	
 	public ProductoTableModel(ProductoDAO dao) {
 		super();
